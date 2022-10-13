@@ -5,20 +5,20 @@ if ($_SESSION["login"] != TRUE) {
 
 
 }
-if ($_SESSION["role"] != "admin") {
+if ($_SESSION["role"] != "walas") {
     echo "
     <script>
-         alert('Akses tidak diberikan, kamu bukan admin');
+         alert('Akses tidak diberikan, kamu bukan walas');
          window.location='input-datadiri.php';
          </script>
     ";
     }
 
-if(isset($_GET["nis"]) && $_SESSION["role"] == "admin"){
+if(isset($_GET["nis"]) && $_SESSION["role"] == "walas"){
     $nis = $_GET["nis"];
 
     $query = "
-     DELETE FROM datadiri
+     DELETE FROM nilai
      WHERE nis = '$nis';
     ";
 
